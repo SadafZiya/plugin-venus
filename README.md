@@ -98,3 +98,9 @@ Edit the specific item with id
 ```
 PATCH http://localhost:3001/items/1
 ```
+
+### test
+
+```
+npm test
+```
