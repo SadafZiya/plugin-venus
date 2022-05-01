@@ -7,7 +7,7 @@ export const RadioBtn = () => {
     setAllowed(!allowed);
   };
   return (
-    <div class="h-screen flex items-center justify-center">
+    <div class="flex flex-col items-center justify-center">
       <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
         <input
           type="checkbox"
