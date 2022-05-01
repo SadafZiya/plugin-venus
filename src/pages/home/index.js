@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query'
-
+import Header from '../../components/Header'
 const Home = () => {
 
     async function fetchPlugins() {
@@ -13,19 +13,22 @@ const Home = () => {
     const { isLoading, error, data } = useQuery('pluginData', fetchPlugins)
 
     return (
-        <div className='container'>
-            {
-                isLoading ? <p>Loading ...</p>
-                    : error ? <p>Error! {error.message}</p>
-                        : (
-                            data &&
-                            data.length &&
-                            data.map((plugin) => {
-                                return <li key={plugin.id}>{plugin.title}</li>
-                            })
-                        )
-            }
-        </div>
+        <>
+            <Header title='Marketing Plugins' />
+            <div className='container'>
+                {
+                    isLoading ? <p>Loading ...</p>
+                        : error ? <p>Error! {error.message}</p>
+                            : (
+                                data &&
+                                data.length &&
+                                data.map((plugin) => {
+                                    return <li key={plugin.id}>{plugin.title}</li>
+                                })
+                            )
+                }
+            </div>
+        </>
     )
 }
 
