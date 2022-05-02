@@ -1,8 +1,10 @@
-.header-title{
-  margin: 30px 50px
-}
 .App {
-  text-align: center;
+  padding: 2rem;
+}
+.header-title {
+  margin: 0 1rem 1rem;
+  font-size: 1.25rem;
+  font-weight: 500;
 }
 
 .App-logo {
