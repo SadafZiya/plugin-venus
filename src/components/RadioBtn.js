@@ -14,7 +14,7 @@ export const RadioBtn = ({ value, disabled }) => {
           name="toggle"
           id="toggle"
           onChange={changeAllowed}
-          value={!!value}
+          checked={!!allowed}
           disabled={!!disabled}
           className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
         />
