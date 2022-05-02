@@ -2,13 +2,9 @@
   padding: 2rem;
 }
 .header-title {
-  margin-top: 0;
-}
-.header-title {
-  margin: 30px 50px;
-}
-.App {
-  text-align: center;
+  margin: 0 1rem 1rem;
+  font-size: 1.25rem;
+  font-weight: 500;
 }
 
 .App-logo {
