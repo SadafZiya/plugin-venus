@@ -10,6 +10,20 @@ const Home = () => {
         return data;
     }
 
+    function updatePlugin(isAllowed, id) {
+        fetch(`http://localhost:3001/items/${id}`, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                isAllowed: !isAllowed,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => console.log(json))
+    }
+
     const { isLoading, error, data } = useQuery('pluginData', fetchPlugins)
 
     return (
@@ -23,7 +37,7 @@ const Home = () => {
                                 data &&
                                 data.length &&
                                 data.map((plugin) => {
-                                    return <Card data={plugin} key={plugin.id} />
+                                    return <Card data={plugin} key={plugin.id} updatePlugin={updatePlugin} />
                                 })
                             )
                 }
