@@ -1,16 +1,21 @@
 import React from "react";
 
-// import RadioBtn from "./RadioBtn";
+import "../assets/style/CardComponent.css";
+import { RadioBtn } from "./RadioBtn.js";
 
-function Card({ status, title, content, radioStatus }) {
+function Card({ data }) {
   return (
-    <div class="w-1/4 rounded-md border border-gray-400 inline-flex m-4 box-border">
-      <div class="w-10/12 flex flex-col items-start p-4">
-        <h2 class="font-medium text-lg">{title}</h2>
-        <h3 class="text-left pt-6 text-gray-400">{content}</h3>
+    <div
+      className={`w-1/4 rounded-md border border-gray-400 inline-flex m-4 box-border ${
+        data.isDisabled ? "disabledbutton" : ""
+      }`}
+    >
+      <div className="w-10/12 flex flex-col items-start p-4">
+        <h2 className="font-medium text-lg">{data.title}</h2>
+        <h3 className="text-left pt-6 text-gray-400">{data.description}</h3>
       </div>
-      <div>
-        {/* <RadioBtn /> */}
+      <div className="pt-4">
+        <RadioBtn />
       </div>
     </div>
   );
