@@ -6,6 +6,7 @@ export const RadioBtn = ({ value, disabled }) => {
   const changeAllowed = () => {
     setAllowed(!allowed);
   };
+
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
