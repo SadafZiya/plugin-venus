@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../assets/style/CardComponent.css";
 import { RadioBtn } from "./RadioBtn.js";
 
-function Card({ cardInfo, updatePluginAllowed }) {
+function Card({ cardInfo, updateOnToggle }) {
     const navigate = useNavigate();
     const goToCardDetail = () => {
         navigate(`/items/${cardInfo.id}`);
@@ -13,8 +13,8 @@ function Card({ cardInfo, updatePluginAllowed }) {
             className={`w-1/4 rounded-md border border-gray-400 inline-flex m-4 box-border ${
                 cardInfo.isDisabled
                     ? cardInfo.isDisabled
-                        ? "disabledbutton"
-                        : ""
+                    ? "disabledbutton"
+                    : ""
                     : ""
             }`}
         >
@@ -35,8 +35,8 @@ function Card({ cardInfo, updatePluginAllowed }) {
                         className={`tooltiptext ${
                             cardInfo.description
                                 ? cardInfo.description.length >= 50
-                                    ? ""
-                                    : "hidden"
+                                ? ""
+                                : "hidden"
                                 : ""
                         }`}
                     >
@@ -50,8 +50,8 @@ function Card({ cardInfo, updatePluginAllowed }) {
             </div>
             <div className="pt-4">
                 <RadioBtn
-                    cardInfo={cardInfo}
-                    updatePluginAllowed={updatePluginAllowed}
+                    data={cardInfo}
+                    updateOnToggle={updateOnToggle}
                 />
             </div>
         </div>
