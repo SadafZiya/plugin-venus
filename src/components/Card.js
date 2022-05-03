@@ -1,9 +1,13 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 import "../assets/style/CardComponent.css";
 import { RadioBtn } from "./RadioBtn.js";
 
 function Card({ cardInfo, updatePluginAllowed }) {
+    const navigate = useNavigate();
+    const goToCardDetail = () => {
+        navigate(`/items/${cardInfo.id}`);
+    };
     return (
         <div
             className={`w-1/4 rounded-md border border-gray-400 inline-flex m-4 box-border ${
@@ -14,7 +18,10 @@ function Card({ cardInfo, updatePluginAllowed }) {
                     : ""
             }`}
         >
-            <div className="w-10/12 flex flex-col items-start p-4">
+            <div
+                className="w-10/12 flex flex-col items-start p-4 cursor-pointer"
+                onClick={goToCardDetail}
+            >
                 <h2 className="font-medium text-lg">
                     {cardInfo.title ? cardInfo.title : ""}
                 </h2>
