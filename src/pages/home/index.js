@@ -1,3 +1,4 @@
+import React from "react";
 import { useQuery } from "react-query";
 import Header from "../../components/Header";
 import Card from "../../components/Card";
