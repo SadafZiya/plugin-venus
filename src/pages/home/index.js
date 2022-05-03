@@ -31,7 +31,7 @@ const Home = () => {
                     data.length &&
                     data.map((plugin) => {
                         return (
-                            <Card data={plugin} key={plugin.id} updateOnToggle={updatePluginAllow} />
+                            <Card cardInfo={plugin} key={plugin.id} updateOnToggle={updatePluginAllow} />
                         );
                     })
                 )}
