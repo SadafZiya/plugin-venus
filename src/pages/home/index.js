@@ -1,26 +1,28 @@
 import React from "react";
-import { useQuery } from "react-query";
+import {useQuery} from "react-query";
 import Header from "../../components/Header";
 import Card from "../../components/Card";
-import { getAllData, patchOneData } from "../../services/CRUDServices";
+import {getAllData, patchOneData} from "../../services/CRUDServices";
 
 const Home = () => {
     // Get all plugins
     const fetchPlugins = async () => {
-        const { data } = await getAllData();
+        const {data} = await getAllData();
         return data;
     };
-    const { isLoading, error, data } = useQuery("pluginData", fetchPlugins);
+    const {isLoading, error, data, refetch} = useQuery("pluginsData", fetchPlugins);
 
     // Update one plugin based on isAllowed item
-    const updatePluginAllow = async (isAllowed, id) => {
-        const { data } = await patchOneData(id, { isAllowed: !isAllowed });
+    const updatePluginAllow = async (pluginData) => {
+        let {isAllowed, id} = pluginData;
+        const {data} = await patchOneData(id, {isAllowed: !isAllowed});
+        refetch();
         return data;
     };
 
     return (
         <div className="">
-            <Header title="Marketing Plugins" />
+            <Header title="Marketing Plugins"/>
             <div className="container">
                 {isLoading ? (
                     <p>Loading ...</p>
@@ -31,7 +33,8 @@ const Home = () => {
                     data.length &&
                     data.map((plugin) => {
                         return (
-                            <Card cardInfo={plugin} key={plugin.id} updateOnToggle={updatePluginAllow} />
+                            <Card cardInfo={plugin} key={plugin.id} navigateTo={`/plugin/${plugin.id}`}
+                                  updateOnToggle={updatePluginAllow}/>
                         );
                     })
                 )}
