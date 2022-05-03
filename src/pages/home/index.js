@@ -12,7 +12,7 @@ const Home = () => {
     const { isLoading, error, data } = useQuery("pluginData", fetchPlugins);
 
     // Update one plugin based on isAllowed item
-    const updatePluginAllowed = async (isAllowed, id) => {
+    const updatePluginAllow = async (isAllowed, id) => {
         const { data } = await patchOneData(id, { isAllowed: !isAllowed });
         return data;
     };
@@ -30,11 +30,7 @@ const Home = () => {
                     data.length &&
                     data.map((plugin) => {
                         return (
-                            <Card
-                                cardInfo={plugin}
-                                key={plugin.id}
-                                updatePluginAllowed={updatePluginAllowed}
-                            />
+                            <Card data={plugin} key={plugin.id} updateOnToggle={updatePluginAllow} />
                         );
                     })
                 )}
