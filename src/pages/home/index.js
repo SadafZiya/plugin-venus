@@ -10,11 +10,13 @@ const Home = () => {
         const { data } = await getAllData();
         return data;
     };
-    const { isLoading, error, data } = useQuery("pluginData", fetchPlugins);
+    const { isLoading, error, data, refetch } = useQuery("pluginsData", fetchPlugins);
 
     // Update one plugin based on isAllowed item
-    const updatePluginAllow = async (isAllowed, id) => {
+    const updatePluginAllow = async (pluginData) => {
+        let { isAllowed, id } = pluginData;
         const { data } = await patchOneData(id, { isAllowed: !isAllowed });
+        refetch();
         return data;
     };
 
