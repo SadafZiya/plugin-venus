@@ -9,7 +9,7 @@ export const RadioBtn = ({ data, updateOnToggle }) => {
           type="checkbox"
           name={`${data.id}`}
           id="toggle"
-          onChange={() => updateOnToggle(data?.isAllowed, data?.id)}
+          onChange={() => updateOnToggle(!data?.isAllowed, data?.id)}
           checked={data?.isAllowed}
           disabled={data?.isDisabled}
           className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
