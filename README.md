@@ -76,6 +76,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ```
 cd mock-server
 npm install
+run server:
+npm start
+or
 npx json-server --watch src/db.json -p 3001
 ```
 
