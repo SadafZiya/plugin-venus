@@ -1,3 +1,4 @@
+import React from "react";
 import notFoundPhoto from "../../assets/images/404.png";
 import "../../assets/style/NotFoundPage.css";
 import { useNavigate } from "react-router-dom";

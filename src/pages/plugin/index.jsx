@@ -3,13 +3,13 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header";
 import ToggleButton  from "../../components/ToggleButton";
-import { getOneData } from "../../services/CRUDServices";
+import { getPluginById } from "../../services/CRUDServices";
 import updatePluginAllow from "../../utils/updatePluginAllow";
 
 function PluginPage() {
     let params = useParams();
     const fetchOnePlugin = async () => {
-        const { data } = await getOneData(params.id);
+        const { data } = await getPluginById(params.id);
         return data;
     };
     const { isLoading, error, data, refetch } = useQuery("pluginInfo", fetchOnePlugin);
