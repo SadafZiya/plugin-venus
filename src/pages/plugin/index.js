@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header";
-import { RadioBtn } from "../../components/RadioBtn";
+import ToggleButton  from "../../components/ToggleButton";
 import { getOneData } from "../../services/CRUDServices";
 import updatePluginAllow from "../../utils/updatePluginAllow";
 
@@ -23,7 +23,7 @@ function PluginPage() {
                 data && (
                     <>
                         <Header title={data.title} />
-                        <RadioBtn data={data} updateOnToggle={updatePluginAllow} refetch={refetch} />
+                        <ToggleButton data={data} updateOnToggle={updatePluginAllow} refetch={refetch} />
                         <div className="container w-1/2 ml-4">
                             <p>{data.description}</p>
                         </div>
