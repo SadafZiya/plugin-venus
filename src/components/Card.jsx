@@ -41,7 +41,7 @@ const Card = ({cardInfo, updateOnToggle, navigateTo, refetch}) => {
                 </h3>
             </div>
             <div className="pt-4">
-                <ToggleButton data={cardInfo} refetch={refetch}  updateOnToggle={updateOnToggle}/>
+                <ToggleButton data={cardInfo} refetch={refetch} updateOnToggle={updateOnToggle}/>
             </div>
         </div>
     );
