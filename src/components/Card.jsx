@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import "../assets/style/CardComponent.css";
 import ToggleButton from "./ToggleButton";
 
-const Card = ({cardInfo, key, refetch, updateOnToggle, navigateTo}) => {
+const Card = ({cardInfo, updateOnToggle, navigateTo, key, refetch}) => {
     return (
         <div
             id={key}
@@ -19,21 +19,21 @@ const Card = ({cardInfo, key, refetch, updateOnToggle, navigateTo}) => {
                 </Link>
                 <h3 className="text-left pt-6 text-gray-400 tooltip">
                     {cardInfo.description
-                        ? cardInfo.description.length >= 50
-                            ? cardInfo.description.substr(0, 50) + "..."
+                        ? cardInfo.description.length >= 100
+                            ? cardInfo.description.substr(0, 100) + "..."
                             : cardInfo.description
                         : ""}
                     <span
                         className={`tooltip-text ${
                             cardInfo.description
-                                ? cardInfo.description.length >= 50
+                                ? cardInfo.description.length >= 100
                                 ? ""
                                 : "hidden"
                                 : ""
                         }`}
                     >
             {cardInfo.description
-                ? cardInfo.description.length >= 50
+                ? cardInfo.description.length >= 100
                     ? cardInfo.description
                     : ""
                 : ""}
