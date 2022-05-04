@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../assets/style/CardComponent.css";
 import ToggleButton from "./ToggleButton";
 
+<<<<<<< HEAD
 const Card = ({ cardInfo, refetch, updateOnToggle, navigateTo }) => {
   return (
     <div
