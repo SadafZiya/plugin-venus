@@ -4,7 +4,7 @@ import "./../assets/style/RadioButton.css";
 const ToggleButton = ({ data, updateOnToggle, refetch }) => {
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+      <div className="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
         <input
           type="checkbox"
           name={`${data.id}`}
@@ -21,7 +21,7 @@ const ToggleButton = ({ data, updateOnToggle, refetch }) => {
           } cursor-pointer`}
         ></label>
       </div>
-      <label htmlFor={`${data.id}`} className="text-xs text-gray-700">
+      <label htmlFor={`${data.id}`} className="text-sm text-gray-700">
         {data?.isAllowed ? (
           <span className=" text-green-500 ">Allowed</span>
         ) : (
