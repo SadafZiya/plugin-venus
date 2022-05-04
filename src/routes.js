@@ -1,6 +1,12 @@
-import Home from "./pages/home"
+import React from "react";
+import Home from "./pages/home";
+import PluginPage from "./pages/plugin";
+import NotFoundPage from "./pages/notFoundPage";
 
 const routes = [
+    { path: "*", element: <NotFoundPage /> },
+    { path: "/404", element: <NotFoundPage /> },
     { path: "/", element: <Home /> },
-]
-export default routes
+    { path: "/plugin/:id", element: <PluginPage /> },
+];
+export default routes;

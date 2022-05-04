@@ -1,42 +1,46 @@
+import React from "react";
 import { useQuery } from "react-query";
 import Header from "../../components/Header";
 import Card from "../../components/Card";
-import { getAllData, patchOneData } from "../../services/CRUDServices";
+import { getAllData } from "../../services/CRUDServices";
+import updatePluginAllow from "../../utils/updatePluginAllow";
 
 const Home = () => {
-    // Get all plugins
-    const fetchPlugins = async () => {
-        const { data } = await getAllData();
-        return data;
-    };
-    const { isLoading, error, data } = useQuery("pluginData", fetchPlugins);
+  const fetchPlugins = async () => {
+    const { data } = await getAllData();
+    return data;
+  };
+  const { isLoading, error, data, refetch } = useQuery(
+    "pluginsData",
+    fetchPlugins
+  );
 
-    // Update one plugin based on isAllowed item
-    const updatePluginAllow = async (isAllowed, id) => {
-        const { data } = await patchOneData(id, { isAllowed: !isAllowed });
-        return data;
-    };
-
-    return (
-        <div className="">
-            <Header title="Marketing Plugins" />
-            <div className="container">
-                {isLoading ? (
-                    <p>Loading ...</p>
-                ) : error ? (
-                    <p>Error! {error.message}</p>
-                ) : (
-                    data &&
-                    data.length &&
-                    data.map((plugin) => {
-                        return (
-                            <Card data={plugin} key={plugin.id} updateOnToggle={updatePluginAllow} />
-                        );
-                    })
-                )}
-            </div>
-        </div>
-    );
+  return (
+    <div className="">
+      <Header title="Marketing Plugins" />
+      <div className="container">
+        {isLoading ? (
+          <p>Loading ...</p>
+        ) : error ? (
+          <p>Error! {error.message}</p>
+        ) : (
+          data &&
+          data.length &&
+          data.map((plugin) => {
+            return (
+              <Card
+                cardInfo={plugin}
+                key={plugin.id}
+                navigateTo={`/plugin/${plugin.id}`}
+                updateOnToggle={updatePluginAllow}
+                refetch={refetch}
+              />
+            );
+          })
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default Home;

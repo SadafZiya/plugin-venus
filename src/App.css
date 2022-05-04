@@ -2,7 +2,8 @@
   padding: 2rem;
 }
 .header-title {
-  margin: 0 1rem 1rem;
+  margin-left: 20px !important;
+  margin-top: 1px !important;
   font-size: 1.25rem;
   font-weight: 500;
 }
