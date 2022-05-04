@@ -3,10 +3,10 @@ import {Link} from "react-router-dom";
 import "../assets/style/CardComponent.css";
 import ToggleButton from "./ToggleButton";
 
-const Card = ({cardInfo, updateOnToggle, navigateTo, key, refetch}) => {
+const Card = ({cardInfo, updateOnToggle, navigateTo, refetch}) => {
     return (
         <div
-            id={key}
+            id={cardInfo.id}
             className={`w-1/4 rounded-md border border-gray-400 inline-flex m-4 box-border ${
                 cardInfo.isDisabled ? (cardInfo.isDisabled ? "disabled-button" : "") : ""
             }`}
@@ -41,7 +41,7 @@ const Card = ({cardInfo, updateOnToggle, navigateTo, key, refetch}) => {
                 </h3>
             </div>
             <div className="pt-4">
-                <ToggleButton data={cardInfo} refetch={refetch} id={key} updateOnToggle={updateOnToggle}/>
+                <ToggleButton data={cardInfo} refetch={refetch}  updateOnToggle={updateOnToggle}/>
             </div>
         </div>
     );
