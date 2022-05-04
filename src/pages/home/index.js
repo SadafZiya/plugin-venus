@@ -33,7 +33,7 @@ const Home = () => {
                 key={plugin.id}
                 navigateTo={`/plugin/${plugin.id}`}
                 updateOnToggle={updatePluginAllow}
-                refetchOnToggle={refetch}
+                onToggleRefetch={refetch}
               />
             );
           })

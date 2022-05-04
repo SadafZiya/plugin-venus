@@ -1,7 +1,7 @@
 import React from "react";
 import "./../assets/style/RadioButton.css";
 
-const ToggleButton = ({ data, updateOnToggle, refetchOnToggle }) => {
+const ToggleButton = ({ data, updateOnToggle, onToggleRefetch }) => {
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
@@ -9,7 +9,7 @@ const ToggleButton = ({ data, updateOnToggle, refetchOnToggle }) => {
           type="checkbox"
           name={`${data.id}`}
           id={`${data.id}`}
-          onChange={() => updateOnToggle(data, refetchOnToggle)}
+          onChange={() => updateOnToggle(data, onToggleRefetch)}
           checked={data?.isAllowed}
           disabled={data?.isDisabled}
           className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"

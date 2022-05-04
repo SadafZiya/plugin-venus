@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../assets/style/CardComponent.css";
 import ToggleButton from "./ToggleButton";
 
-function Card({ cardInfo, updateOnToggle, navigateTo, refetchOnToggle }) {
+function Card({ cardInfo, updateOnToggle, navigateTo, onToggleRefetch }) {
   return (
     <div
       className={`w-1/4 rounded-md border border-gray-400 inline-flex m-4 box-border ${
@@ -43,7 +43,7 @@ function Card({ cardInfo, updateOnToggle, navigateTo, refetchOnToggle }) {
         <ToggleButton
           data={cardInfo}
           updateOnToggle={updateOnToggle}
-          refetchOnToggle={refetchOnToggle}
+          onToggleRefetch={onToggleRefetch}
         />
       </div>
     </div>
