@@ -1,5 +1,5 @@
 import notFoundPhoto from "../../assets/images/404.png";
-import styles from "../../assets/style/NotFoundPage.module.css";
+import "../../assets/style/NotFoundPage.css";
 import { useNavigate } from "react-router-dom";
 const NotFoundPage = () => {
     const navigate = useNavigate();
@@ -9,7 +9,7 @@ const NotFoundPage = () => {
     return (
         <div className="flex flex-col justify-center items-center w-full">
             <img
-                className={`${styles.notfoundimage} w-full h-full`}
+                className={`not-found-image w-full h-full`}
                 src={notFoundPhoto}
                 alt="notfound"
             />
