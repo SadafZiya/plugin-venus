@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../assets/style/CardComponent.css";
 import ToggleButton from "./ToggleButton";
 
-function Card({ cardInfo, updateOnToggle, navigateTo }) {
+function Card({ key, cardInfo, updateOnToggle, navigateTo }) {
   return (
     <div
       id={key}
@@ -41,7 +41,6 @@ function Card({ cardInfo, updateOnToggle, navigateTo }) {
         </h3>
       </div>
       <div className="pt-4">
-        <RadioBtn cardInfo={cardInfo} updatePlugin={updatePlugin} />
         <ToggleButton data={cardInfo} updateOnToggle={updateOnToggle} />
       </div>
     </div>
