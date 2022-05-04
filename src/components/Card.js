@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import "../assets/style/CardComponent.css";
 import ToggleButton from "./ToggleButton";
 
-function Card({ key, cardInfo, updateOnToggle, navigateTo }) {
+function Card({ cardInfo, updateOnToggle, navigateTo }) {
   return (
     <div
-      id={key}
+      id={cardInfo.key}
       className={`w-1/4 rounded-md border border-gray-400 inline-flex m-4 box-border ${
         cardInfo.isDisabled ? (cardInfo.isDisabled ? "disabledbutton" : "") : ""
       }`}
@@ -19,21 +19,21 @@ function Card({ key, cardInfo, updateOnToggle, navigateTo }) {
         </Link>
         <h3 className="text-left pt-6 text-gray-400 tooltip">
           {cardInfo.description
-            ? cardInfo.description.length >= 50
-              ? cardInfo.description.substr(0, 50) + "..."
+            ? cardInfo.description.length >= 100
+              ? cardInfo.description.substr(0, 100) + "..."
               : cardInfo.description
             : ""}
           <span
             className={`tooltiptext ${
               cardInfo.description
-                ? cardInfo.description.length >= 50
+                ? cardInfo.description.length >= 100
                   ? ""
                   : "hidden"
                 : ""
             }`}
           >
             {cardInfo.description
-              ? cardInfo.description.length >= 50
+              ? cardInfo.description.length >= 100
                 ? cardInfo.description
                 : ""
               : ""}

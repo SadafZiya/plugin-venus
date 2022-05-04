@@ -6,12 +6,11 @@
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
-  }
+}
   
 .tooltip .tooltiptext {
 visibility: hidden;
-width: 120px;
+width: 350px;
 background-color: black;
 color: #fff;
 text-align: center;
