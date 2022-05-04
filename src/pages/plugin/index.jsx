@@ -28,7 +28,7 @@ const PluginPage = () => {
                 data && (
                     <>
                         <Header backTo={'/'} title={data.title}/>
-                        <ToggleButton data={data} id={data.id} updateOnToggle={updatePluginAllow} refetch={refetch}/>
+                        <ToggleButton data={data} updateOnToggle={updatePluginAllow} refetch={refetch}/>
                         <div className="container w-1/2 ml-4">
                             <p>{data.description}</p>
                         </div>
