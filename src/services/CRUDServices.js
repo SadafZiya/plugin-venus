@@ -1,11 +1,11 @@
 import http from "./HttpService";
 
-export function getAllData() {
+export function getPluginList() {
     return http.get()
 }
-export function getOneData(params) {
+export function getPluginById(params) {
     return http.get(`/${params}`)
 }
-export function patchOneData(id, updatedItem) {
+export function patchOnePlugin(id, updatedItem) {
     return http.patch(`/${id}`, updatedItem)
 }

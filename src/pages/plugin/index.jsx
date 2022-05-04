@@ -1,18 +1,23 @@
 import React from "react";
-import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
+import {useQuery} from "react-query";
+import {useNavigate, useParams} from "react-router-dom";
 import Header from "../../components/Header";
-import ToggleButton  from "../../components/ToggleButton";
-import { getOneData } from "../../services/CRUDServices";
+import ToggleButton from "../../components/ToggleButton";
+import {getPluginById} from "../../services/CRUDServices";
 import updatePluginAllow from "../../utils/updatePluginAllow";
 
-function PluginPage() {
+const PluginPage = () => {
     let params = useParams();
+    const navigate = useNavigate();
     const fetchOnePlugin = async () => {
-        const { data } = await getOneData(params.id);
-        return data;
+       try {
+           const {data} = await getPluginById(params.id);
+           return data;
+       }catch (e) {
+           navigate("/404");
+       }
     };
-    const { isLoading, error, data, refetch } = useQuery("pluginInfo", fetchOnePlugin);
+    const {isLoading, error, data, refetch} = useQuery("pluginInfo", fetchOnePlugin);
     return (
         <div>
             {isLoading ? (
@@ -22,8 +27,8 @@ function PluginPage() {
             ) : (
                 data && (
                     <>
-                        <Header title={data.title} />
-                        <ToggleButton data={data} updateOnToggle={updatePluginAllow} refetch={refetch} />
+                        <Header backTo={'/'} title={data.title}/>
+                        <ToggleButton data={data} id={data.id} updateOnToggle={updatePluginAllow} refetch={refetch}/>
                         <div className="container w-1/2 ml-4">
                             <p>{data.description}</p>
                         </div>

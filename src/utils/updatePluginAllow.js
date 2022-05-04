@@ -1,8 +1,8 @@
-import { patchOneData } from "../services/CRUDServices";
+import { patchOnePlugin } from "../services/CRUDServices";
 
 const updatePluginAllow = async (pluginData, refetch) => {
     let { isAllowed, id } = pluginData;
-    const { data } = await patchOneData(id, { isAllowed: !isAllowed });
+    const { data } = await patchOnePlugin(id, { isAllowed: !isAllowed });
     refetch();
     return data;
 };

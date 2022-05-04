@@ -2,12 +2,12 @@ import React from "react";
 import { useQuery } from "react-query";
 import Header from "../../components/Header";
 import Card from "../../components/Card";
-import { getAllData } from "../../services/CRUDServices";
+import { getPluginList } from "../../services/CRUDServices";
 import updatePluginAllow from "../../utils/updatePluginAllow";
 
 const Home = () => {
   const fetchPlugins = async () => {
-    const { data } = await getAllData();
+    const { data } = await getPluginList();
     return data;
   };
   const { isLoading, error, data, refetch } = useQuery(
