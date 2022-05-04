@@ -1,7 +1,7 @@
 import React from "react";
 import "./../assets/style/RadioButton.css";
 
-export const RadioBtn = ({ data, updateOnToggle }) => {
+const ToggleButton = ({ data, updateOnToggle, refetch }) => {
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
@@ -9,13 +9,13 @@ export const RadioBtn = ({ data, updateOnToggle }) => {
           type="checkbox"
           name={`${data.id}`}
           id={`${data.id}`}
-          onChange={() => updateOnToggle(data)}
+          onChange={() => updateOnToggle(data, refetch)}
           checked={data?.isAllowed}
           disabled={data?.isDisabled}
           className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
         />
         <label
-          for={`${data.id}`}
+          htmlFor={`${data.id}`}
           className={`toggle-label block overflow-hidden h-6 rounded-full ${
             data?.isAllowed ? "bg-green-500" : "bg-red-500"
           } cursor-pointer`}
@@ -31,3 +31,4 @@ export const RadioBtn = ({ data, updateOnToggle }) => {
     </div>
   );
 };
+export default ToggleButton;
